@@ -66,6 +66,9 @@ public final class TypewriterLabel: UILabel {
     /// The interval (time gap) between each character being animated on screen.
     public var typingTimeInterval: TimeInterval = 0.1
     
+    /// The alpha of "invisible" items
+    public var alphaOfHiddenCharacters: CGFloat = 0
+    
     /// Boolean for if the label is animating or not.
     public private(set) var isAnimating: Bool = false
     
@@ -319,7 +322,7 @@ public final class TypewriterLabel: UILabel {
      Adjusts the alpha value on the attributed string so that it is transparent.
      */
     private func hideAttributedText() {
-        updateAttributedTextVisibility(to: 0)
+        updateAttributedTextVisibility(to: alphaOfHiddenCharacters)
     }
     
     /**
